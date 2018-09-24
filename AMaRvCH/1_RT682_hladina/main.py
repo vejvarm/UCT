@@ -24,9 +24,9 @@ def load_data(filename, path='./', delimiter='\t', usecols=None):
 
 def plot_data(ax, df, x, y, y2, y2_secondary):
 
-    df.plot(kind='line', x=x, y=y, alpha=0.7, ax=ax[0])
-    df.plot(kind='line', x=x, y=y2, alpha=0.7, ax=ax[1])
-    ax2 = df.plot(kind='line', x=x, y=y2_secondary, alpha=0.7, ax=ax[1], secondary_y=True)
+    df.plot(kind='line', x=x, y=y, alpha=0.8, ax=ax[0], linewidth=1.5)
+    df.plot(kind='line', x=x, y=y2, alpha=0.8, ax=ax[1], linewidth=1.5)
+    ax2 = df.plot(kind='line', x=x, y=y2_secondary, alpha=0.8, ax=ax[1], secondary_y=True, linewidth=1.5)
 
     format_axes(ax[0], 'Hladina vody ve výmìníku', 'èas (min)', 'w, y (mm)')
     format_axes(ax[1], 'Pøíkon èerpadla / Prùtok soustavou', 'èas (min)', 'u (%)', ax2=ax2, ax2_ylabel='z (l/h)')
@@ -37,7 +37,7 @@ def format_axes(ax, title, xlabel, ylabel, time_format='%M', ax2=None, ax2_ylabe
     ax.set_title(title)
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
-    ax.grid(color='k', linestyle=':', alpha=0.5)
+    ax.grid(color='k', linestyle=':', alpha=0.3)
     ax.autoscale(enable=True, axis='x', tight=True)
     ax.xaxis.set_major_locator(mdates.MinuteLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter(time_format))
