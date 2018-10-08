@@ -2,9 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c24b95dc-57d6-4b68-af7a-98c6884475f3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/img/MRRH1_2.1.3_Cele.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/img/MRRH1_2.1.3_Cele.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/MRRH1_2.1.4_Cele.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/img/MRRH1_2.1.4_Cele.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Termografie/lab1/dynamika/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Termografie/lab1/dynamika/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Termografie/lab1/dynamika/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PMR/1/fazova_trajektorie.slx" beforeDir="false" afterPath="$PROJECT_DIR$/../../PMR/1/fazova_trajektorie.slx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PMR/1/fazova_trajektorie.slx.autosave" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PMR/1/fazova_trajektorie_2.slx" beforeDir="false" afterPath="$PROJECT_DIR$/../../PMR/1/fazova_trajektorie_2.slx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PMR/1/fazova_trajektorie_2.slx.autosave" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PMR/1/fazova_trajektorie_2.slxc" beforeDir="false" afterPath="$PROJECT_DIR$/../../PMR/1/fazova_trajektorie_2.slxc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PMR/1/init.m" beforeDir="false" afterPath="$PROJECT_DIR$/../../PMR/1/init.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PMR/1/slprj/sim/varcache/fazova_trajektorie_2/checksumOfCache.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../PMR/1/slprj/sim/varcache/fazova_trajektorie_2/checksumOfCache.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PMR/1/slprj/sim/varcache/fazova_trajektorie_2/tmwinternal/simulink_cache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../PMR/1/slprj/sim/varcache/fazova_trajektorie_2/tmwinternal/simulink_cache.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PMR/1/slprj/sim/varcache/fazova_trajektorie_2/varInfo.mat" beforeDir="false" afterPath="$PROJECT_DIR$/../../PMR/1/slprj/sim/varcache/fazova_trajektorie_2/varInfo.mat" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,10 +27,12 @@
     <session id="-327594853">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.4" value="3" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.4" value="6" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -38,45 +51,19 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="59" />
-          <entry key="py" value="4554" />
+          <entry key="py" value="4557" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4613" />
+          <entry key="Python" value="4616" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plot_results.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="51" lean-forward="true" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
-              <folding>
-                <element signature="e#23#42#0" expanded="true" />
-                <marker date="1537806705331" expanded="true" signature="226:231" ph="..." />
-                <marker date="1537806705331" expanded="true" signature="1058:1060" ph="..." />
-                <marker date="1537806705331" expanded="true" signature="1106:2048" ph="..." />
-                <marker date="1537806705331" expanded="true" signature="1639:2048" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -101,10 +88,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="375" />
+    <option name="y" value="137" />
+    <option name="width" value="1296" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -112,7 +99,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -124,6 +110,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -181,7 +168,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24973656" />
@@ -213,24 +199,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plot_results.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="51" lean-forward="true" selection-start-line="40" selection-start-column="51" selection-end-line="40" selection-end-column="51" />
-          <folding>
-            <element signature="e#23#42#0" expanded="true" />
-            <marker date="1537806705331" expanded="true" signature="226:231" ph="..." />
-            <marker date="1537806705331" expanded="true" signature="1058:1060" ph="..." />
-            <marker date="1537806705331" expanded="true" signature="1106:2048" ph="..." />
-            <marker date="1537806705331" expanded="true" signature="1639:2048" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>

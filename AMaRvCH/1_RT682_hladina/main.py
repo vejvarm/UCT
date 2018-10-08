@@ -10,7 +10,7 @@ def load_data(filename, path='./', delimiter='\t', usecols=None):
     """ load the data from filename in specified path"""
 
     df = pd.read_csv(path + filename, delimiter=delimiter, header=0, usecols=usecols, encoding='cp1250')
-    df['Time Index'] = pd.to_datetime(df['Time Index'], format='%M:%S.%f')
+    df['Time Index'] = pd.to_datetime(df['Time Index'], format='%H:%M:%S')
 #    df['Time Index'] = df['Time Index'].apply(lambda x: x.strftime('%M:%S.%f'))
 #    df['Time Index'] = df['Time Index'].dt.strftime('%M:%S.%f')
     df = df.rename(index=str, columns={'Time Index': 'èas (m:s.ms)',
