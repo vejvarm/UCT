@@ -1,0 +1,4 @@
+Firma tmvss.cz:
+	software - irbis
+imageIR IIR 10300
+Multi-integration times
