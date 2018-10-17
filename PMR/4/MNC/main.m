@@ -9,9 +9,9 @@ u = ones(Nt,1);
 % u = [linspace(0,1,floor(Nt/2))'; ones(ceil(Nt/2),1)];
 
 %% prenos funkce, ktera bude identifikovana
-ka = 3;
+ka = 1;
 Ta = 2;
-eps = 0.4; 
+eps = 0.8; 
 B = ka;
 A = [Ta^2 2*eps*Ta 1];
 % Fs = tf(B,A);
@@ -29,10 +29,10 @@ figure(1)
     stairs(tspan,u)
     hold off
      
-%%
-[Bi,Ai] = mnc(2,3,y,u);
+%% aproximace parametrù soustavy metodou nejmenších ètvercù
+[Bi,Ai] = mnc(1,3,y,u);
 
-%%
+%% vykreslení
 Fzi = tf(Bi',Ai',Ts);
 
 yi = lsim(Fzi,u,tspan);
