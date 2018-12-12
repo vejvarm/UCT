@@ -56,3 +56,4 @@ figure(2)
     ylabel('y')
     grid on
     legend('pùvodní funkce','fuzzy aproximace')
+    title(sprintf('Fuzzy aproximace %u fcemi pøíslušnosti tvaru %s',n_mfs,mf_shape))
