@@ -1,0 +1,16 @@
+﻿% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c|}{teploty PID (°C)}      & \multicolumn{2}{c|}{30}         & \multicolumn{2}{c|}{40}         & \multicolumn{2}{c|}{50}         \\ \hline
+\multicolumn{1}{c|}{}                       & \textbf{pyro} & \textbf{kamera} & \textbf{pyro} & \textbf{kamera} & \textbf{pyro} & \textbf{kamera} \\ \hline
+\multicolumn{1}{|l|}{\textbf{teploty (°C)}} & 29,9          & 31,7            & 40            & 41,7            & 50,1          & 51,4            \\ \hline
+\multicolumn{1}{|l|}{\textbf{reference}}    & 0,96          & 0,96            & 0,96          & 0,96            & 0,96          & 0,96            \\ \hline
+\multicolumn{1}{|l|}{\textbf{černý}}        & 0,925         & 0,91            & 0,89          & 0,895           & 0,876         & 0,9             \\ \hline
+\multicolumn{1}{|l|}{\textbf{bílý}}         & 0,761         & 0,84            & 0,735         & 0,8             & 0,725         & 0,788           \\ \hline
+\end{tabular}%
+}
+\end{table}

@@ -1,0 +1,17 @@
+﻿% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l|c|c|c|c|c|c|}
+\hline
+\multicolumn{1}{|c|}{PID / pyro / kamera (°C)} & \multicolumn{2}{c|}{30 / 31 / 33,5} & \multicolumn{2}{c|}{40 / 41,1 / 43,6} & \multicolumn{2}{c|}{50 / 51,2 / 52,3} \\ \hline
+\multicolumn{1}{c|}{}                          & \textbf{pyro}   & \textbf{kamera}   & \textbf{pyro}    & \textbf{kamera}    & \textbf{pyro}    & \textbf{kamera}    \\ \hline
+\multicolumn{1}{|l|}{\textbf{bílý}}            & 0,761           & 0,84              & 0,735            & 0,8                & 0,725            & 0,788              \\ \hline
+\multicolumn{1}{|l|}{\textbf{GoPro}}           & 0,95            & 0,92              & 0,906            & 0,912              & 0,931            & 0,958              \\ \hline
+\multicolumn{1}{|l|}{\textbf{teflon}}          & 0,825           & 0,87              & 0,85             & 0,86               & 0,821            & 0,875              \\ \hline
+\multicolumn{1}{|l|}{\textbf{polovodič větší}} & 0,34            & 0,666             & 0,358            & 0,508              & 0,324            & 0,505              \\ \hline
+\multicolumn{1}{|l|}{\textbf{polovodič menší}} & 0,3             & 0,62              & 0,284            & 0,472              & 0,237            & 0,475              \\ \hline
+\end{tabular}%
+}
+\end{table}
