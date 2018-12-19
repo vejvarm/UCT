@@ -1,11 +1,6 @@
 close all
 clear
 
-% Komunikace se soustavou
-s = daq.createSession('ni');
-addAnalogOutputChannel(s,'Dev1','ao0','Voltage');
-addAnalogInputChannel(s,'Dev1','ai0','Voltage');
-
 % PREDIKTIVNÍ REGULACE
 ki = 1.31;
 Tis = [30 45];
@@ -105,9 +100,7 @@ figure(1)
     hold on
 
 for k = len_A+1:N
-    y(k) = average_input(s,Navg,T);  % zahrnuje i pauzy se souètem T
-%     y(k) = (B_sys*u_past - A_sys(2:end)*y_past(1:end-1))/A_sys(1);
-%     y(k) = y(k) + 0.01*randn(1);
+    y(k) = (B_sys*u_past - A_sys(2:end)*y_past(1:end-1))/A_sys(1);
     
     % aktualizace minulosti vystupu
     y_past = [y(k);y_past(1:end-1)];
@@ -137,18 +130,15 @@ for k = len_A+1:N
     % ukladani akcnich zasahu
     u(k) = u_past(1);
     
-    % odeslání do soustavy
-    outputSingleScan(s,u(k));
-    
     % vykreslení
     plot(time(k),y(k),'b.')
     plot(time(k),w(k),'r.')
     plot(time(k),u(k),'g.','MarkerEdgeColor',[0.3,0.5,0.2])
     drawnow
-    
+    pause(0.01)
 end
+hold off
 
-%%
 %% finální graf
 figure(2)
     plot(time,y,'-b','LineWidth',1.5);
@@ -169,7 +159,7 @@ figure(2)
     axchld = ax.Children;
     set(gca,'Children',axchld(end:-1:1))
     
-    
-
+%% export dat
+% export_fig(2,'./obrazky/final_simulovany.pdf')
 
 
