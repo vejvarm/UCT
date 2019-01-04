@@ -28,12 +28,17 @@ plot(w.Time, w.Data)
 plot(y.Time, y.Data)
 hold off
 
-% with three relays
+% with two relays
 sim('ekviv_prenos_nelin_2_relays')
 figure(length(tons)+2)
 plot(w.Time, w.Data)
 hold on
 plot(y.Time, y.Data)
 hold off
+
+% with two relays, hysteresis and dead zone
+sim('ekviv_prenos_nelin_2_relays_hyster')
+figure(length(tons)+3)
+plot(w.Time, w.Data, y.Time, y.Data)
 
 
