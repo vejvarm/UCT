@@ -17,9 +17,9 @@ A = [Ta^2 2*eps*Ta 1];
 
 % -- ZAVEDENÍ CHYBY ZESÍLENÍ DO SOUSTAVY --
 fault = true;        % zapnutí/vypnutí zavedení chyby
-fault_start = 150;   % v jakém èase má chyba nastat
-fault_end = 300;     % v jakém èase má chyba skonèit
-fault_size = 0.01;   % max. velikost chyby zesílení
+fault_start = 200;   % v jakém èase má chyba nastat
+fault_end = 400;     % v jakém èase má chyba skonèit
+fault_size = 0.05;   % max. velikost chyby zesílení
 
 % -- IDENTIFIKOVANÁ SOUSTAVA --
 nb = length(nonzeros(Bz));   % nb predchozich vstupu na prave strane (+1 aktualni pokud m = n)
@@ -73,7 +73,6 @@ if ishandle(1)
     delete(get(1,'Children'))
 end
 figure(1)
-    xlim([0,t(end)])
 for k = na:N
     
     if delay == 0
@@ -99,20 +98,15 @@ for k = na:N
     yi(k) = (Bi'*u(k-delay:-1:k-na+1) - Ai(2:end)'*yi(k-1:-1:k-na+1))/Ai(1);
     
     % výpoèet výstupu reálné soustavy
-    if fault == true
-%         Bz(end) = Bz(end) + 0.0001*rand;
-        if k == fault_start/Ts
-            gain_fault = fault_size*rand;
-            Bz(end) = Bz(end) + gain_fault;  % chyba zesílení soustavy
-        elseif k == fault_end/Ts
-            Bz(end) = Bz(end) - gain_fault;  % konec chyby zesílení soustavy
-        end
+    if fault == true && k == fault_start/Ts
+        gain_fault = fault_size*rand
+        Bz(end) = Bz(end) + fault_size*rand;  % chyba zesílení soustavy
     end
     y(k) = (Bz*u(k-delay:-1:k-na+1) - Az(2:end)*y(k-1:-1:k-na+1))/Az(1);
     e(k) = w(k) - y(k);
     
     % porovnání identifikované soustavy s reálnou
-    plot(t,y,'-b',t,yi,'-r','LineWidth',2);
+    plot(t(1:k),y(1:k),'-b',t(1:k),yi(1:k),'-r','LineWidth',2);
     drawnow
     
     %% Sylvestrova matice pro vyøešení polynomù P a Q
@@ -164,7 +158,6 @@ if ishandle(3)
     delete(get(3,'Children'))
 end
 figure(3)
-    set(3,'DefaultlineLineWidth',2)
     subplot(311)
         stairs(tspan,u)
             title('Akèní zásah == výstup z regulátoru')

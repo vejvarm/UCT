@@ -1,4 +1,6 @@
 function [num,den,Bout,Pout,Kout] = rmnc(nb,na,y,u,Bin,Pin,Kin)
+    
+%     K = Bin*Pin;
             
     % sestrojeni vektoru x(k+1)
     x = [u(nb:-1:1)', -y(na-1:-1:1)'];
@@ -18,8 +20,4 @@ function [num,den,Bout,Pout,Kout] = rmnc(nb,na,y,u,Bin,Pin,Kin)
     % oprava odhadu parametrù
     Kout = Kin + m'*e;
     
-%     Kout'
-    
-    % osamostatneni nul a pólù
-    num = Kout(1:nb);
-    den = [1; Kout(nb+1:end)];
+

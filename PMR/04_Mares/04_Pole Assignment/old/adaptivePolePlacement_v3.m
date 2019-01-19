@@ -7,19 +7,13 @@ tspan = 0:Ts:tmax;
 N = length(tspan);
 
 % -- SKUTEÈNÁ SOUSTAVA --
-ka = 10;
+ka = 1;
 Ta = 10;
-eps = 0.2;
+eps = 1;
 B = ka;
 A = [Ta^2 2*eps*Ta 1];
 % A = [1 2 3 4];
 [Bz,Az] = c2dm(B,A,Ts,'zoh');
-
-% -- ZAVEDENÍ CHYBY ZESÍLENÍ DO SOUSTAVY --
-fault = true;        % zapnutí/vypnutí zavedení chyby
-fault_start = 150;   % v jakém èase má chyba nastat
-fault_end = 300;     % v jakém èase má chyba skonèit
-fault_size = 0.01;   % max. velikost chyby zesílení
 
 % -- IDENTIFIKOVANÁ SOUSTAVA --
 nb = length(nonzeros(Bz));   % nb predchozich vstupu na prave strane (+1 aktualni pokud m = n)
@@ -31,7 +25,7 @@ init_ratio = 0.1;            % délka inicializaèních dat jako pomìr celkové délk
 % D = [1 -0.6 0.07];      % požadovaná pravá strana
 D = [1.0000 -0.5000 0.0625];      % požadovaná pravá strana
 rD = roots(D)
-w = 100*ones(N+na-1,1);  % øídicí velièina
+w = 1*ones(N,1);  % øídicí velièina
 
 %% INICIALIZACE
 % pomocné vektory
@@ -44,7 +38,7 @@ e = ones(N,1);
 % Inicializace matic B, P a vektoru parametrù K (pro RMNÈ)
 init_length = floor(init_ratio*N);  % délka inicializaèních dat
 u0 = ones(init_length,1);
-yreal = lsim(tf(Bz,Az,Ts),u0);
+yreal = nonlinSys(t(1:init_length)',u0);
 y0 = yreal(1:init_length);
 [Prmnc,Brmnc] = calcBandP(nb,na,y0,u0);
 Krmnc = Prmnc*Brmnc;
@@ -73,7 +67,13 @@ if ishandle(1)
     delete(get(1,'Children'))
 end
 figure(1)
-    xlim([0,t(end)])
+%     plot(0,0,'b.',0,0,'r.')
+%     hold on
+
+% DEBUG
+% Bz = Bz + 0.01;
+% Az(2:end) = Az(2:end) - 0.01;
+
 for k = na:N
     
     if delay == 0
@@ -99,20 +99,13 @@ for k = na:N
     yi(k) = (Bi'*u(k-delay:-1:k-na+1) - Ai(2:end)'*yi(k-1:-1:k-na+1))/Ai(1);
     
     % výpoèet výstupu reálné soustavy
-    if fault == true
-%         Bz(end) = Bz(end) + 0.0001*rand;
-        if k == fault_start/Ts
-            gain_fault = fault_size*rand;
-            Bz(end) = Bz(end) + gain_fault;  % chyba zesílení soustavy
-        elseif k == fault_end/Ts
-            Bz(end) = Bz(end) - gain_fault;  % konec chyby zesílení soustavy
-        end
-    end
-    y(k) = (Bz*u(k-delay:-1:k-na+1) - Az(2:end)*y(k-1:-1:k-na+1))/Az(1);
+%     y(k) = (Bz*u(k-delay:-1:k-na+1) - Az(2:end)*y(k-1:-1:k-na+1))/Az(1);
+    y(k) = nonlinSys(t(k-1),u(k-1));
     e(k) = w(k) - y(k);
     
     % porovnání identifikované soustavy s reálnou
     plot(t,y,'-b',t,yi,'-r','LineWidth',2);
+    
     drawnow
     
     %% Sylvestrova matice pro vyøešení polynomù P a Q
@@ -164,7 +157,6 @@ if ishandle(3)
     delete(get(3,'Children'))
 end
 figure(3)
-    set(3,'DefaultlineLineWidth',2)
     subplot(311)
         stairs(tspan,u)
             title('Akèní zásah == výstup z regulátoru')

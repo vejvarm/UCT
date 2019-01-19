@@ -9,12 +9,8 @@ function [Pout,Kout] = rmnc(nb,na,y,u,Pin,Kin)
     % vypocet m(k+1)
     m = Pin*x'/(1 + x*Pin*x');
     
-    % aktualizace B
-%     Bout = Bin + x'*y(end);
-    
     % aktualizace P
     Pout = Pin - m*x*Pin;
-%     Pout = pinv(pinv(Pin) + x'*x);
     
     % oprava odhadu parametrù
     Kout = Kin + m*e;

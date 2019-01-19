@@ -1,4 +1,4 @@
-function [B,P] = calcBandP(nb,na,y,u)
+function [P,B] = calcBandP(nb,na,y,u)
     
     % sestrojeni matice X
     X = zeros(length(u)-na,nb + na - 1);
@@ -9,10 +9,10 @@ function [B,P] = calcBandP(nb,na,y,u)
     end
     
     % vypocet matice B a vektoru P
-    B = pinv(X'*X); 
-    P = X'*y;
+    P = pinv(X'*X); 
+    B = X'*y;
     
-    % regularizace
-    if all(all(isinf(B))) == 1
-       B = ones(size(B));
-    end
+%     % regularizace
+%     if all(all(isinf(B))) == 1
+%        B = ones(size(B));
+%     end

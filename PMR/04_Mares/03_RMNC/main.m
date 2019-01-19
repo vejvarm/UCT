@@ -48,10 +48,10 @@ figure(1)
 init_length = floor(init_ratio*length(y));  % délka inicializaèních dat
 u0 = u(1:init_length);
 y0 = y(1:init_length);
-[B,P] = calcBandP(nb,na,y0,u0);
+[P,B] = calcBandP(nb,na,y0,u0);
 % B = ones(size(B));
 % P = 0.2*rand(size(P));
-K = B*P;
+K = P*B;
 
 %% Testování (mírná úprava parametrù reálné soustavy)
 % simulace reálné soustavy s mírnou úpravou parametrù
@@ -65,7 +65,11 @@ figure(1)
     subplot(212)
 for i = init_length:length(y)-na
     % identifikace parametrù pomocí RMNÈ
-    [Bi,Ai,B,P,K] = rmnc(nb,na,y(i:i+na-1),u(i:i+nb),B,P,K);
+    [P,K] = rmnc(nb,na,y(i:i+na-1),u(i:i+nb),P,K);
+    
+    % osamostatneni nul a pólù
+    Bi = K(1:nb);
+    Ai = [1; K(nb+1:end)];
     
     % simulace soustavy s identifikovanými parametry
     Fzi = tf(Bi',Ai',Ts);
