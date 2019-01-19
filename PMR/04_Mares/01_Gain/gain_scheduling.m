@@ -36,7 +36,7 @@ e = ones(N,1);
 r0 = zeros(N,1);
 
 % ridici velicina
-ws = [0.1, 0.4, 0.2, 0.3];
+ws = [0.1, 0.4, 0.2, 0.35];
 N_ws = length(ws);
 w = zeros(1,N);
 for i = 1:N_ws
@@ -78,6 +78,7 @@ figure(1)
         hold off
         ylabel('y, w (1)')
         legend('y', 'w')
+        title('Gain Scheduling nelineární soustavy')
     sp(2) = subplot(212);
         plot(tspan,u)
         hold on
@@ -85,6 +86,7 @@ figure(1)
         hold off
         ylabel('u, r0 (1)')
         legend('u', 'r0')
+        title('Trend zesílení a akèních zásahù')
         
     arrayfun(@(spi) xlabel(spi, 'èas (s)'), sp)
     arrayfun(@(spi) grid(spi, 'on'), sp)

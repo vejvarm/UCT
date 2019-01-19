@@ -11,3 +11,8 @@ function [B,P] = calcBandP(nb,na,y,u)
     % vypocet matice B a vektoru P
     B = inv(X'*X); 
     P = X'*y;
+    
+    % regularizace
+    if all(all(isinf(B))) == 1
+       B = ones(size(B));
+    end
